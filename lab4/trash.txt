@@ -1,0 +1,100 @@
+//class RubiksCube {
+//private:
+//    enum color {
+//        GREEN, ORANGE, RED, WHITE, YELLOW, BLUE
+//    };
+//    /*
+//     * 0 - LEFT
+//     * 1 - BACK
+//     * 2 - FRONT
+//     * 3 - UP
+//     * 4 - DOWN
+//     * 5 - RIGhT
+//     */
+//    std::vector<std::vector<std::vector<color>>> colors_;
+//
+//    void rot_90(int num) {
+//        std::vector<color> temp(colors_[num][0]);
+//        for (int i = 0; i < 3; ++i)
+//            colors_[num][0][i] = colors_[num][2 - i][0];
+//        for (int i = 0; i < 3; ++i)
+//            colors_[num][i][0] = colors_[num][2][i];
+//        for (int i = 0; i < 3; ++i)
+//            colors_[num][2][i] = colors_[num][2 - i][2];
+//        for (int i = 0; i < 3; ++i)
+//            colors_[num][i][2] = temp[i];
+//        int type;
+//        if (num == 0 || num == 2)
+//            type = 0;
+//        else if (num == 1 || num == 5)
+//            type = 1;
+//        else
+//            type = num - 2;
+//        if (type == 1) {
+//            for (int i = 0; i < 3; ++i)
+//                temp[i] = colors_[3][i][2];
+//            for (int i = 0; i < 3; ++i)
+//                colors_[3][i][2] = colors_[2][i][2];
+//            for (int i = 0; i < 3; ++i)
+//                colors_[2][i][2] = colors_[4][i][2];
+//            for (int i = 0; i < 3; ++i)
+//                colors_[4][i][2] = colors_[1][i][2];
+//            for (int i = 0; i < 3; ++i)
+//                colors_[1][i][2] = temp[i];
+//        }
+//    }
+//
+//    void rot_180(int num) {
+//        color temp;
+//        for (int i = 0; i < 3; ++i) {
+//            temp = colors_[num][0][i];
+//            colors_[num][0][i] = colors_[num][2][2 - i];
+//            colors_[num][2][2 - i] = temp;
+//        }
+//        for (int i = 0; i < 3; ++i) {
+//            temp = colors_[num][i][0];
+//            colors_[num][i][0] = colors_[num][2 - i][2];
+//            colors_[num][2 - i][2] = temp;
+//        }
+//    }
+//
+//    void rot_270(int num) {
+//        std::vector<color> temp(colors_[num][0]);
+//        for (int i = 0; i < 3; ++i)
+//            colors_[num][0][i] = colors_[num][i][2];
+//        for (int i = 0; i < 3; ++i)
+//            colors_[num][i][2] = colors_[num][2][2 - i];
+//        for (int i = 0; i < 3; ++i)
+//            colors_[num][2][i] = colors_[num][i][0];
+//        for (int i = 0; i < 3; ++i)
+//            colors_[num][i][0] = temp[2 - i];
+//    }
+//
+//
+//public:
+//    RubiksCube() {
+//        colors_.resize(6);
+//        colors_[0].resize(3, std::vector<color>(3, GREEN));
+//        colors_[1].resize(3, std::vector<color>(3, ORANGE));
+//        colors_[2].resize(3, std::vector<color>(3, RED));
+//        colors_[3].resize(3, std::vector<color>(3, WHITE));
+//        colors_[4].resize(3, std::vector<color>(3, YELLOW));
+//        colors_[5].resize(3, std::vector<color>(3, BLUE));
+//    }
+//
+//    void R() {
+//        std::vector<color> temp(3);
+//        for (int i = 0; i < 3; ++i)
+//            temp[i] = colors_[3][i][2];
+//        for (int i = 0; i < 3; ++i)
+//            colors_[3][i][2] = colors_[2][i][2];
+//        for (int i = 0; i < 3; ++i)
+//            colors_[2][i][2] = colors_[4][i][2];
+//        for (int i = 0; i < 3; ++i)
+//            colors_[4][i][2] = colors_[1][i][2];
+//        for (int i = 0; i < 3; ++i)
+//            colors_[1][i][2] = temp[i];
+//
+//        rot_90(5);
+//    }
+//};
